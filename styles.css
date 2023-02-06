@@ -1,0 +1,352 @@
+<style>
+header {
+		position: relative;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 16px;
+		line-height: 1.4;
+		color: #000;
+		min-width: 320px;
+		overflow-x: hidden;
+		height: auto;
+	}
+
+	.navig {
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		width: 100%;
+		height: 100px;
+		box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+		background-color: #303030;
+		z-index: 3;
+		opacity: 0.5;
+		transition: all .4s ease-out
+	}
+
+	.navig:hover{
+		background-color: black;
+		opacity: 1;
+	}
+
+	.navig .container {
+		height: inherit;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.navig-menu {
+		font-weight: 400;
+		font-size: 19px;
+		list-style-type: none ;
+		margin-right: 40px;
+		padding-left: 0;
+		margin-bottom: 20px;
+	}
+	.navig-menu li {
+		display: inline-block;
+	}
+	.navig-menu li a {
+		display: inline-block;
+		color: whitesmoke;
+		text-decoration: none;
+		opacity: 0.6;
+		padding: 10px;
+	}
+	.navig-menu li a:hover {
+		opacity: 1;
+		transition: all .2s ease-out;
+		pointer-events: initial;
+	}
+
+	.navig-menu li a:click {
+		pointer-events: auto;
+	}
+
+	.navig-one {
+		display: flex;
+		flex-flow: row nowrap;
+	}
+	.call {
+		margin-left: 40px;
+		margin-right: 15px;
+		padding: 10px 20px;
+		background-color: orangered;
+		border-radius: 15px;
+		text-decoration: none;
+		color: whitesmoke;
+		box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+		transition: all 0.3s ease-out
+	}
+	.call:hover {
+		transform: scale(1.05);
+	}
+	#call-hamburger{
+		display: none;
+	}
+/*_______________________________________________*/
+/*Hamburger MENU*/
+/*_______________________________________________*/
+	.menu{
+		display: flex;
+		font-size: 20px;
+	}
+	#checkbox_toggle{
+		display: none;
+	}
+	.hamburger{
+	display: none;
+	font-size: 24px;
+	cursor: pointer;
+	}
+	.hamburger_line{
+/*		margin-right: 20px;*/
+		padding-right: 20px;
+		background-color: whitesmoke;
+		display: block;
+		height: 3px;
+		position: relative;
+		width: 30px;
+		border-radius: 60px;
+	}
+
+	.hamburger_line::before,
+	.hamburger_line::after{
+		background-color: whitesmoke;
+		content:'';
+		display: block;
+		position: absolute;
+		transition: all .4s;
+		width: 100%;
+		height: 100%;
+		border-radius: 60px;
+	}
+	.hamburger_line::before{
+		top: 9px;
+	}
+	.hamburger_line::after{
+		top: -9px;
+	}
+/*_______________________________________________*/
+/*ECЛИ МАЛЫЙ РАЗМЕР ЭКРАНА*/
+/*_______________________________________________*/
+@media (max-width: 900px){
+
+	.menu{
+		display: inline-block;
+		max-height: 0%;
+		overflow: hidden;
+		position: absolute;
+		background-color: #303030;
+		text-align: center;
+		right: 0;
+		left: 0;
+		margin-top: 25px;
+		transition: all .9s ease-out;
+	}
+
+	.navig{
+		opacity: 1;
+		background-color: #303030;
+	}
+	.navig:hover{
+		background-color: #303030;
+	}
+
+	.menu li{
+		display: inline-block;
+
+	}
+	.menu li a{
+		display: inline-block;
+		padding: 15px;
+	}
+
+	.menu li:hover{
+		background-color: orangered;
+	}
+
+	#checkbox_toggle:checked ~ .menu{
+		max-height: 60%;
+	}
+	
+	.hamburger{
+	display: block;
+	padding: 20px 0;
+	}
+
+	#call-hamburger{
+		display: inline-block;
+	}
+
+	#call-main{
+		display: none;
+	}
+
+	#checkbox_toggle:checked ~ .hamburger .hamburger_line{
+		background-color: transparent;
+		transform: rotate(180deg);
+/*		transition: .3s ease-out;*/
+	}
+
+	#checkbox_toggle:not(:checked) ~ .hamburger .hamburger_line{
+		transform: rotate(360deg);
+		background-color: whitesmoke;
+		transition: .4s ease-in-out;
+	}
+
+	#checkbox_toggle:checked ~ .hamburger .hamburger_line::before {
+		transform: rotate(-45deg);
+		top: 0;
+		transition: .3s ease-out;
+	}
+
+	#checkbox_toggle:checked ~ .hamburger .hamburger_line::after {
+		transform: rotate(45deg);
+		top: 0;
+		transition: .3s ease-out;
+	}
+}
+/*_______________________________________________*/
+/*МИНИМАЛЬНЫЙ ДИСПЛЕЙ*/
+/*_______________________________________________*/
+@media (max-width: 595px){
+
+	.menu{
+		display: block;
+	}
+
+	#checkbox_toggle:checked ~ .menu{
+		max-height: 300%;
+	}
+
+	.menu li{
+		display: block;
+	}
+
+	.menu li a{
+		display: block;
+	}
+}
+/*_______________________________________________*/
+/*LOGO*/
+/*_______________________________________________*/
+	.navig-logo {
+		font-weight: 700;
+		font-size: 40px;
+		text-decoration: none;
+		color: whitesmoke;
+		margin-left: 40px;
+		transition: all .4s ease-out
+	}
+	.navig-logo:hover {
+/*		text-shadow: 7px 7px 1px rgba(0, 0, 0, .10);*/
+		color: orangered;
+	}
+
+/*	ТЕЛО*/
+body{
+		position: relative;
+		margin: 0;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 16px;
+		line-height: 1.4;
+		color: #000;
+		min-width: 320px;
+		overflow-x: hidden;
+		height: 200vh;
+		background-color:black;
+}
+.body{
+		position: relative;
+		color: whitesmoke;
+		min-height: 800px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed, scroll;
+}
+
+.overlay{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .5);
+}
+
+.body .row{
+		min-height: 700px;
+		display: flex;
+		align-items: center;
+}
+.body-content{
+		text-align: center;
+		padding-top: 250px;
+		position: relative;
+		z-index: 2;
+}
+
+.body-content h1{
+		padding-left:;
+		font-size: 36px;
+		font-weight: 800;
+		margin-bottom: 10px;
+}
+
+.body-content h4{
+		padding-left:50px;
+		padding-right: 50px;
+		font-size: 21px;
+		font-weight: 400;
+		opacity: 0.7;
+		margin-bottom:25px ;
+}
+.btn-main{
+		text-decoration: none;
+		display: inline-block;
+		padding: 20px 0px;
+		font-size: 18px;
+		border: none;
+		background-color: orangered;
+		text-transform: uppercase;
+		border-radius: 15px;
+		font-weight: 700;
+		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+		transition: all 0.3s ease-out;
+}
+.btn-main a{
+		padding-top: 20px;
+		padding-bottom: 20px;
+		padding-left: 30px;
+		padding-right: 30px;
+		text-decoration: none;
+		color: whitesmoke;
+}
+.btn-main:hover{
+		box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+		transform: scale(1.05);
+}
+
+/*.write_btn{
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	z-index: 99;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	background-color: whitesmoke;
+	opacity: 0.5;
+}*/
+@media (max-width: 900px){
+	.body{ 
+		background-attachment: scroll;
+/*		background-size: cover;*/
+		min-height: 950px;
+	}
+}
+
+
+
+</style>
